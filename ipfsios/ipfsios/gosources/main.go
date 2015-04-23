@@ -3,10 +3,13 @@ package main
 /*
 // adjust LDFLAGS to produce linkable code - note Go starts first, so
 // be sure to change AppDelegate main() for chaining ..
-#cgo LDFLAGS: -Wl,-U,_iosmain -framework UIKit -framework Foundation -framework CoreGraphics
+#cgo LDFLAGS: -Wl,-U,_iosmain,-U,_PopUpDialogBox
+#cgo LDFLAGS: -framework UIKit -framework Foundation -framework CoreGraphics
+extern char* PopUpDialogBox(char* msg);
 extern void iosmain(int argc, char *argv[]);
 */
 import "C"
+
 
 import (
 	"fmt"
@@ -14,7 +17,8 @@ import (
 	"os"
 
     // ipfs
-/*	core "github.com/jbenet/go-ipfs/core"
+/*
+    core "github.com/jbenet/go-ipfs/core"
 	corenet "github.com/jbenet/go-ipfs/core/corenet"
 	fsrepo "github.com/jbenet/go-ipfs/repo/fsrepo"
 	"code.google.com/p/go.net/context"
@@ -28,7 +32,8 @@ func AddUsingGo(a int, b int) int {
 
 // basic server for debugging ..
 func HandleHttpRequest(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello from Go on an iPhone! Path: %s", r.URL.Path[1:])
+    userInput := C.GoString(C.PopUpDialogBox(C.CString(r.URL.Path[1:])))
+	fmt.Fprintf(w, "Hello from Go on an iPhone! Response: %s", userInput)
 }
 
 func StartGoServer() {

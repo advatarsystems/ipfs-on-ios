@@ -19,6 +19,7 @@
 		09C59EF21AE9005F008B9926 /* go-output.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C59EF11AE9005F008B9926 /* go-output.a */; };
 		09EDDD801AE9289200ED1F82 /* ipfs_client.go in Resources */ = {isa = PBXBuildFile; fileRef = 09EDDD7D1AE9289200ED1F82 /* ipfs_client.go */; };
 		09EDDD811AE9289200ED1F82 /* ipfs_server.go in Resources */ = {isa = PBXBuildFile; fileRef = 09EDDD7E1AE9289200ED1F82 /* ipfs_server.go */; };
+		09EDDD831AE938D300ED1F82 /* ipfsAlertDialogBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EDDD821AE938D300ED1F82 /* ipfsAlertDialogBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		09C59EF11AE9005F008B9926 /* go-output.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "go-output.a"; sourceTree = "<group>"; };
 		09EDDD7D1AE9289200ED1F82 /* ipfs_client.go */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ipfs_client.go; sourceTree = "<group>"; };
 		09EDDD7E1AE9289200ED1F82 /* ipfs_server.go */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ipfs_server.go; sourceTree = "<group>"; };
+		09EDDD821AE938D300ED1F82 /* ipfsAlertDialogBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ipfsAlertDialogBox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				0910F3B51AE839DB00BAFC5E /* AppDelegate.m */,
 				0910F3B71AE839DB00BAFC5E /* ViewController.h */,
 				0910F3B81AE839DB00BAFC5E /* ViewController.m */,
+				09EDDD821AE938D300ED1F82 /* ipfsAlertDialogBox.m */,
 				0910F3BA1AE839DB00BAFC5E /* Main.storyboard */,
 				0910F3BD1AE839DB00BAFC5E /* Images.xcassets */,
 				0910F3BF1AE839DB00BAFC5E /* LaunchScreen.xib */,
@@ -269,6 +272,7 @@
 			files = (
 				0910F3B91AE839DB00BAFC5E /* ViewController.m in Sources */,
 				0910F3B61AE839DB00BAFC5E /* AppDelegate.m in Sources */,
+				09EDDD831AE938D300ED1F82 /* ipfsAlertDialogBox.m in Sources */,
 				0910F3B31AE839DB00BAFC5E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
