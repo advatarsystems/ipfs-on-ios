@@ -11,11 +11,11 @@ export GOPATH=/Users/j/Library/Developer/Xcode/DerivedData/ipfsios-aklfckqgczeog
 export PATH=$PATH:/usr/local/bin
 
 #echo "Generating header _cgo_export.h"
-#GOARM=7 CGO_ENABLED=1 GOARCH=arm $GO tool cgo -objdir $GG_CGO_OBJ main.go
+#GOARM=7 CGO_ENABLED=1 GOARCH=arm64 $GO tool cgo -objdir $GG_CGO_OBJ main.go
 #cp $GG_CGO_OBJ/_cgo_export.h $SRCROOT/ipfsios
 
 #echo "Getting dependencies"
-#GOARM=7 CGO_ENABLED=1 GOARCH=arm $GO get -v .
+#GOARM=7 CGO_ENABLED=1 GOARCH=arm64 $GO get -v .
 
 #echo "Building Go Code"
 GOARM=7 CGO_ENABLED=1 GOARCH=arm64 $GO build -i -ldflags '-tmpdir '$GG_OBJ' -linkmode external' .
