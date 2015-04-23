@@ -26,11 +26,7 @@ func AddUsingGo(a int, b int) int {
 	return a + b
 }
 
-//export SubUsingGo
-func SubUsingGo(a int, b int) int {
-	return a - b
-}
-
+// basic server for debugging ..
 func HandleHttpRequest(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello from Go on an iPhone! Path: %s", r.URL.Path[1:])
 }
@@ -41,47 +37,10 @@ func StartGoServer() {
 	http.ListenAndServe(":6060", nil)
 }
 
+
+// Go main entry point
 func main() {
-	fmt.Fprintf(os.Stderr, "startup of Golang ::\n")
+	fmt.Fprintf(os.Stderr, "Startup of Golang iosmain ::\n")
 	go StartGoServer()
 	C.iosmain(0, nil)
 }
-
-/*
-func ipfs_main() {
-	// Basic ipfsnode setup
-	r := fsrepo.At("~/.go-ipfs")
-	if err := r.Open(); err != nil {
-		panic(err)
-	}
-
-	nb := core.NewNodeBuilder().Online()
-	nb.SetRepo(r)
-
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-
-	nd, err := nb.Build(ctx)
-	if err != nil {
-		panic(err)
-	}
-
-	list, err := corenet.Listen(nd, "/app/whyrusleeping")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("I am peer: %s\n", nd.Identity)
-
-	for {
-		con, err := list.Accept()
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		defer con.Close()
-
-		fmt.Fprintln(con, "Hello! This is whyrusleepings awesome ipfs service")
-		fmt.Printf("Connection from: %s\n", con.Conn().RemotePeer())
-	}
-}
-*/
