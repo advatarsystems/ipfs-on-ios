@@ -12,9 +12,9 @@
 * Use [homebrew](http://brew.sh/) to install go on your OSX development machine ($ brew install go)
 * Currently depends on go 1.4.2 for cross-compiling the goios tools
 * Will download and configure the goios ios64-new branch toolchain
-* Includes a configured XCode project which builds Go code which works with Objective-C and vice versa, to serve as a harness for an ipfs port.
+* Includes a configured XCode project which builds Go code and which works with Objective-C and vice versa, to serve as a harness for an ipfs port.
 * See also: [Using Go in Mobile Apps](https://medium.com/using-go-in-mobile-apps)
-* When enabled (gosoursce/main.go), the basic ipfs server code is used to pull in the Go dependencies, and expose missing syscall/functionality.
+* When enabled (see gosources/main.go), the basic ipfs server code is used to pull in the Go dependencies, and expose missing syscall/functionality.
 
 ###Usage:
 
