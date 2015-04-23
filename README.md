@@ -16,7 +16,7 @@
 
 ###Usage:
 
-	To get started, clone this repository, check the Makefile to verify GOROOT_BOOTSTRAP, type 'make' and sit back while the toolchain and then ipfsios projects are built.
+To get started, clone this repository, check the Makefile to verify GOROOT_BOOTSTRAP, type 'make' and sit back while the toolchain and then ipfsios projects are built.
 
 ###Current Status:
 
