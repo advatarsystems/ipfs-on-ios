@@ -12,19 +12,22 @@
 * Use [homebrew](http://brew.sh/) to install go on your OSX development machine ($ brew install go)
 * Currently depends on go 1.4.2 for cross-compiling the goios tools
 * Will download and configure the goios ios64-new branch toolchain
-* Includes a configured XCode project 
+* Includes a configured XCode project which builds Go code which works with Objective-C and vice versa, to serve as a harness for an ipfs port.
+* See also: [Using Go in Mobile Apps](https://medium.com/using-go-in-mobile-apps)
+* When enabled (gosoursce/main.go), the basic ipfs server code is used to pull in the Go dependencies, and expose missing syscall/functionality.
 
 ###Usage:
 
-	To get started, clone this repository, check the Makefile to verify GOROOT_BOOTSTRAP, type 'make' and sit back while the toolchain and then ipfsios projects are built.
+To get started, clone this repository, check the Makefile to verify GOROOT_BOOTSTRAP, type 'make' and sit back while the toolchain and then ipfsios projects are built.
 
 ###Current Status:
 
-Currently builds a working cgo toolchain from a fresh goios repository, and then during XCode build, calls it from the ipfsios/ipfsios/build-go.sh script, successfully compiling Go code with the Objective-C of iOS.
+As of 23Apr2015, does *not* currently compile the full ipfs dependencies due to some missing syscalls.  It is set up to do so, but cannot proceed due to missing syscalls in goios implementation.
 
-However as of 23Apr2015, does *not* currently compile the full ipfs dependencies due to some missing syscalls.  
+This project contains 3 components - the Makefile, the ipfsios project (for XCode), and - after the first 'make' - a local copy of the goios toolchain, configured for use on iOS.
 
-Once the toolchain and ifpsios projects have built successfully, modify ipfsios/ipsios/gosources/main.go to include a simple ipfs-server, and rebuild to see current ipfs state.
+As currently configured (see gosources/main.go), the XCode project will build the onboard gosources/main.go module successfully, and link it with a "Stock standard" XCode ViewController project to illustrate interaction between Go and C/Objective-C compiled code.  This is working 
+
 
 All pull-requests welcome.
 
