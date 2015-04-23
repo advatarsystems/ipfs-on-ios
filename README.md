@@ -26,7 +26,7 @@ As of 23Apr2015, does *not* currently compile the full ipfs dependencies due to 
 
 This project contains 3 components - the Makefile, the ipfsios project (for XCode), and - after the first 'make' - a local copy of the goios toolchain, configured for use on iOS.
 
-As currently configured (see gosources/main.go), the XCode project will build the onboard gosources/main.go module successfully, and link it with a "Stock standard" XCode ViewController project to illustrate interaction between Go and C/Objective-C compiled code.  This is working 
+As currently configured (see gosources/main.go), the XCode project will build the onboard gosources/main.go module successfully, and link it with a "Stock standard" XCode ViewController project to illustrate interaction between Go and C/Objective-C compiled code.  This is working fine to demonstrate Go/Objective-C/XCode plumbing is in place and working.  However, once more modules are exposed, limitations in the toolchain support for iOS are readily visible.
 
 
 All pull-requests welcome.
