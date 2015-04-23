@@ -28,7 +28,6 @@ This project contains 3 components - the Makefile, the ipfsios project (for XCod
 
 As currently configured (see gosources/main.go), the XCode project will build the onboard gosources/main.go module successfully, and link it with a "Stock standard" XCode ViewController project to illustrate interaction between Go and C/Objective-C compiled code.  This is working fine to demonstrate Go/Objective-C/XCode plumbing is in place and working.  However, once more usage is made of the ipfs, these links can be removed ..
 
-
 All pull-requests welcome.
 
 Contact: seclorum@icloud.com

@@ -262,6 +262,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "ipfsios/build-go.sh";
 			shellScript = "ipfsios/build-go.sh";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
