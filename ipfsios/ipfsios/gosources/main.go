@@ -39,12 +39,12 @@ func StartGoServer() {
 	http.ListenAndServe(":6060", nil)
 }
 
+/*
+
 func ipfs_client() {
-	if len(os.Args) < 2 {
-		fmt.Println("Please give a peer ID as an argument")
-		return
-	}
-	target, err := peer.IDB58Decode(os.Args[1])
+    peerIdStr := "QmYjCC4zppJgaSPYxZqNV2R4otNjzANjFGK4LJQd3ufEMC"
+
+	target, err := peer.IDB58Decode(peerIdStr)
 	if err != nil {
 		panic(err)
 	}
@@ -77,7 +77,6 @@ func ipfs_client() {
 	io.Copy(os.Stdout, con)
 }
 
-/*
 func ipfs_server() {
 	// Basic ipfsnode setup
 	r := fsrepo.At("~/.go-ipfs")
