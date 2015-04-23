@@ -22,12 +22,11 @@ To get started, clone this repository, check the Makefile to verify GOROOT_BOOTS
 
 ###Current Status:
 
-As of 23Apr2015, does *not* currently compile the full ipfs dependencies due to some missing syscalls.  It is set up to do so, but cannot proceed due to missing syscalls in goios implementation.
+As of 23Apr2015, *does* currently compile the full ipfs dependencies!  Whats needed at the moment is a working ipfs server/client implementation, in gosources/main.go
 
 This project contains 3 components - the Makefile, the ipfsios project (for XCode), and - after the first 'make' - a local copy of the goios toolchain, configured for use on iOS.
 
-As currently configured (see gosources/main.go), the XCode project will build the onboard gosources/main.go module successfully, and link it with a "Stock standard" XCode ViewController project to illustrate interaction between Go and C/Objective-C compiled code.  This is working fine to demonstrate Go/Objective-C/XCode plumbing is in place and working.  However, once more modules are exposed, limitations in the toolchain support for iOS are readily visible.
-
+As currently configured (see gosources/main.go), the XCode project will build the onboard gosources/main.go module successfully, and link it with a "Stock standard" XCode ViewController project to illustrate interaction between Go and C/Objective-C compiled code.  This is working fine to demonstrate Go/Objective-C/XCode plumbing is in place and working.  However, once more usage is made of the ipfs, these links can be removed ..
 
 All pull-requests welcome.
 

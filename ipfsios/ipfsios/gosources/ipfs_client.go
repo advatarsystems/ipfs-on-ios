@@ -1,19 +1,29 @@
 package main
 
+/*
+// adjust LDFLAGS to produce linkable code - note Go starts first, so
+// be sure to change AppDelegate main() for chaining ..
+#cgo LDFLAGS: -Wl,-U,_iosmain -framework UIKit -framework Foundation -framework CoreGraphics
+*/
+import "C"
+
+/*
 import (
-    "fmt"
-    "io"
-    "os"
 
-    core "github.com/jbenet/go-ipfs/core"
-    corenet "github.com/jbenet/go-ipfs/core/corenet"
-    peer "github.com/jbenet/go-ipfs/p2p/peer"
-    fsrepo "github.com/jbenet/go-ipfs/repo/fsrepo"
+"fmt"
+"net/http"
+"os"
 
-    "code.google.com/p/go.net/context"
+// ipfs
+	core "github.com/jbenet/go-ipfs/core"
+corenet "github.com/jbenet/go-ipfs/core/corenet"
+fsrepo "github.com/jbenet/go-ipfs/repo/fsrepo"
+"code.google.com/p/go.net/context"
+
 )
 
-func main() {
+
+func ipfs_client() {
     if len(os.Args) < 2 {
         fmt.Println("Please give a peer ID as an argument")
         return
@@ -51,3 +61,4 @@ func main() {
     io.Copy(os.Stdout, con)
 }
 
+*/

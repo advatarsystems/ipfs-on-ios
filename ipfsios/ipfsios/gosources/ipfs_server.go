@@ -1,16 +1,28 @@
 package main
 
+/*
+// adjust LDFLAGS to produce linkable code - note Go starts first, so
+// be sure to change AppDelegate main() for chaining ..
+#cgo LDFLAGS: -Wl,-U,_iosmain -framework UIKit -framework Foundation -framework CoreGraphics
+*/
+import "C"
+
+/*
+
 import (
-    "fmt"
+"fmt"
+"net/http"
+"os"
 
-    core "github.com/jbenet/go-ipfs/core"
-    corenet "github.com/jbenet/go-ipfs/core/corenet"
-    fsrepo "github.com/jbenet/go-ipfs/repo/fsrepo"
+// ipfs
+	core "github.com/jbenet/go-ipfs/core"
+corenet "github.com/jbenet/go-ipfs/core/corenet"
+fsrepo "github.com/jbenet/go-ipfs/repo/fsrepo"
+"code.google.com/p/go.net/context"
 
-    "code.google.com/p/go.net/context"
 )
 
-func main() {
+func ipfs_server() {
     // Basic ipfsnode setup
     r := fsrepo.At("~/.go-ipfs")
     if err := r.Open(); err != nil {
@@ -47,3 +59,4 @@ func main() {
     }
 }
 
+*/

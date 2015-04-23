@@ -3,7 +3,9 @@ package main
 /*
 // adjust LDFLAGS to produce linkable code - note Go starts first, so
 // be sure to change AppDelegate main() for chaining ..
-#cgo LDFLAGS: -Wl,-U,_iosmain -framework UIKit -framework Foundation -framework CoreGraphics
+#cgo LDFLAGS: -Wl,-U,_iosmain,-U,_PopUpDialogBox
+#cgo LDFLAGS: -framework UIKit -framework Foundation -framework CoreGraphics
+extern char* PopUpDialogBox(char* msg);
 extern void iosmain(int argc, char *argv[]);
 */
 import "C"
@@ -13,12 +15,11 @@ import (
 	"net/http"
 	"os"
 
-    // ipfs
-/*	core "github.com/jbenet/go-ipfs/core"
+	// ipfs
+	"code.google.com/p/go.net/context"
+	core "github.com/jbenet/go-ipfs/core"
 	corenet "github.com/jbenet/go-ipfs/core/corenet"
 	fsrepo "github.com/jbenet/go-ipfs/repo/fsrepo"
-	"code.google.com/p/go.net/context"
-*/
 )
 
 //export AddUsingGo
@@ -26,13 +27,10 @@ func AddUsingGo(a int, b int) int {
 	return a + b
 }
 
-//export SubUsingGo
-func SubUsingGo(a int, b int) int {
-	return a - b
-}
-
+// basic server for debugging ..
 func HandleHttpRequest(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello from Go on an iPhone! Path: %s", r.URL.Path[1:])
+	userInput := C.GoString(C.PopUpDialogBox(C.CString(r.URL.Path[1:])))
+	fmt.Fprintf(w, "Hello from Go on an iPhone! Response: %s", userInput)
 }
 
 func StartGoServer() {
@@ -41,14 +39,45 @@ func StartGoServer() {
 	http.ListenAndServe(":6060", nil)
 }
 
-func main() {
-	fmt.Fprintf(os.Stderr, "startup of Golang ::\n")
-	go StartGoServer()
-	C.iosmain(0, nil)
+/*
+
+func ipfs_client() {
+    peerIdStr := "QmYjCC4zppJgaSPYxZqNV2R4otNjzANjFGK4LJQd3ufEMC"
+
+	target, err := peer.IDB58Decode(peerIdStr)
+	if err != nil {
+		panic(err)
+	}
+
+	// Basic ipfsnode setup
+	r := fsrepo.At("~/.go-ipfs")
+	if err := r.Open(); err != nil {
+		panic(err)
+	}
+
+	nb := core.NewNodeBuilder().Online()
+	nb.SetRepo(r)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	nd, err := nb.Build(ctx)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("I am peer %s dialing %s\n", nd.Identity, target)
+
+	con, err := corenet.Dial(nd, target, "/app/whyrusleeping")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	io.Copy(os.Stdout, con)
 }
 
-/*
-func ipfs_main() {
+func ipfs_server() {
 	// Basic ipfsnode setup
 	r := fsrepo.At("~/.go-ipfs")
 	if err := r.Open(); err != nil {
@@ -85,3 +114,10 @@ func ipfs_main() {
 	}
 }
 */
+
+// Go main entry point
+func main() {
+	fmt.Fprintf(os.Stderr, "Startup of Golang iosmain ::\n")
+	go StartGoServer()
+	C.iosmain(0, nil)
+}
